@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Banner from './components/Banner'
 import Overview from './components/Overview'
 import FeaturedProjects from './components/FeaturedProjects'
 
 function Home(props) {
   return (
-    <>
+    <div>
       <Banner/>
       <Overview/>
       <FeaturedProjects/>
-    </>
+    </div>
   );
 }
 

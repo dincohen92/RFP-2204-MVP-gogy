@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function FeaturedProjects(props) {
   return (
-    <>
-      Featured Projects
-    </>
+    <div>
+      <h3>Featured Projects</h3>
+    </div>
   );
 }
 
