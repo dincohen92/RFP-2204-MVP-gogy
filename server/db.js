@@ -16,11 +16,15 @@ const projectSchema = mongoose.Schema({
   description: String,
   groupSize: Number,
   age: Number,
+  coverPhoto: String,
   materials: Array,
   tools: Array,
   hazards: Array,
   reviews: Array,
   photos: Array,
+  verified: Boolean,
+  featured: Boolean,
+  flagged: Boolean,
 });
 
 // const reviewSchema = mongoose.Schema({

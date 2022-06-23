@@ -9,9 +9,6 @@ function FeaturedProjects(props) {
       <ProjectCard/>
       <ProjectCard/>
       <ProjectCard/>
-      <ProjectCard/>
-      <ProjectCard/>
-      <ProjectCard/>
     </FeaturedProjectWrapper>
   );
 }
