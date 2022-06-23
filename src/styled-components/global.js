@@ -21,13 +21,17 @@ export const ProjectCardWrapper = styled.div`
   display: flex;
   flex-direction: column:
   gap: 25px;
-  align-items: center;
-  height: 200px;
-  width: 150px;
-  padding: 15px;
+  height: 300px;
+  width: 200px;
   border-style: none;
   border-radius: 25px;
   background-color: #85cb33ff;
 `
+export const ProjectCardPhoto = styled.img`
+  height: 125px;
+  width: 200px;
+  border-radius: 25px 25px 0px 0px;
+`
+
 
 

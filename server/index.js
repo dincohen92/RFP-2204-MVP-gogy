@@ -11,6 +11,8 @@ app.use(cors({origin:["http://localhost:3000"]}))
 
 app.get('/gogy/projects', controllers.getAllProjects)
 
+app.get('/gogy/projects/verified', controllers.getAllVerifiedProjects)
+
 app.get('/gogy/projects/:project_id', controllers.getProjectById);
 
 app.post('/gogy/projects', controllers.postProject);

@@ -1,10 +1,11 @@
 import React from 'react';
-import {ProjectCardWrapper} from '../../styled-components/global'
+import {ProjectCardWrapper, ProjectCardPhoto} from '../../styled-components/global'
 
 function ProjectCard(props) {
   return (
     <ProjectCardWrapper>
-      blah balh
+      <ProjectCardPhoto src={props.project.coverPhoto}/>
+
     </ProjectCardWrapper>
   );
 }

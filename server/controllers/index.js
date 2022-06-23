@@ -1,12 +1,14 @@
+const {getAllProjects} = require('./getAllProjects');
+const {getAllVerifiedProjects} = require('./getAllVerifiedProjects');
 const {getProjectById} = require('./getProjectById');
 const {postProject} = require('./postProject');
-const {getAllProjects} = require('./getAllProjects');
 const {getReviews} = require('./getReviews')
 
 
 module.exports = {
-  getProjectById: getProjectById,
   getAllProjects: getAllProjects,
+  getAllVerifiedProjects: getAllVerifiedProjects,
+  getProjectById: getProjectById,
   postProject: postProject,
   getReviews: getReviews,
 }

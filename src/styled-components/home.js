@@ -8,5 +8,5 @@ export const FeaturedProjectWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
-  padding: 0px 100px;
+  padding: 0px 50px;
 `

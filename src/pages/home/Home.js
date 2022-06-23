@@ -8,7 +8,7 @@ function Home(props) {
     <div>
       <Banner/>
       <Overview/>
-      <FeaturedProjects/>
+      <FeaturedProjects projects={props.projects}/>
     </div>
   );
 }

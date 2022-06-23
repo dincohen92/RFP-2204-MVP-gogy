@@ -1,8 +1,8 @@
 const Projects = require('../db');
 
-module.exports.getAllProjects = async (req, res) => {
+module.exports.getAllVerifiedProjects = async (req, res) => {
   try {
-    const projects = await Projects.find();
+    const projects = await Projects.find({verified: true});
     res.send(projects).status(200);
   } catch {
     res.status(404)

@@ -5,10 +5,9 @@ import ProjectCard from '../../global/ProjectCard';
 function FeaturedProjects(props) {
   return (
     <FeaturedProjectWrapper>
-      <ProjectCard/>
-      <ProjectCard/>
-      <ProjectCard/>
-      <ProjectCard/>
+      {props.projects.map((project, index) => (
+        <ProjectCard project={project}/>
+      ))}
     </FeaturedProjectWrapper>
   );
 }
