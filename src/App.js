@@ -1,8 +1,11 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
-import { Navbar, Searchbar } from './styled-components/global'
-import Home from './pages/home/Home';
 import axios from 'axios';
+
+import Home from './pages/home/Home';
+import CreateProject from './pages/create-project/CreateProject';
+
+import { Navbar, Searchbar } from './styled-components/global'
 
 function App() {
   const [safeMode, setSafeMode] = useState(true)
@@ -62,6 +65,7 @@ function App() {
       <button value="projectDetails" onClick={changePage}>projectDetails</button>
       <button value="projectOverview" onClick={changePage}>projectOverview</button>
       <button value="search" onClick={changePage}>search</button>
+      <button value="createProject" onClick={changePage}>createProject</button>
       <button onClick={getProjects}>get projects</button>
 
       { page === 'home' &&
@@ -81,6 +85,9 @@ function App() {
         <>
           search
         </>
+      }
+      { page === 'createProject' &&
+        <CreateProject />
       }
     </div>
   );

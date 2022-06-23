@@ -14,6 +14,7 @@ db.once('open', () => {
 const projectSchema = mongoose.Schema({
   name: String,
   description: String,
+  instructions: String,
   groupSize: Number,
   age: Number,
   coverPhoto: String,

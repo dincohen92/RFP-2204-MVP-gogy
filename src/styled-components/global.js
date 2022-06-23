@@ -19,8 +19,8 @@ export const Searchbar = styled.input`
 `
 export const ProjectCardWrapper = styled.div`
   display: flex;
-  flex-direction: column:
-  gap: 25px;
+  flex-direction: column;
+  gap: 10px;
   height: 300px;
   width: 200px;
   border-style: none;
