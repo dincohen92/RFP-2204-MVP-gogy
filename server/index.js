@@ -19,6 +19,10 @@ app.post('/gogy/projects', controllers.postProject);
 
 app.get('/gogy/projects/:project_id/reviews', controllers.getReviews)
 
+app.put('/gogy/projects/:project_id', controllers.updateProject);
+
+app.delete('/gogy/projects/:project_id', controllers.deleteProject);
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

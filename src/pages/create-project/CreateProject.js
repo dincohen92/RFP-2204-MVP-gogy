@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 import {CreateProjectForm, CreateProjectFormWrapper} from '../../styled-components/createProject';
 
 function CreateProject(props) {
   const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    groupSize: '',
-    age: '',
-    coverPhoto: '',
-    materials: '',
-    tools: '',
-    hazards: '',
+    name: 'bridge',
+    description: 'description',
+    instructions: 'instructions',
+    groupSize: 1,
+    age: 1,
+    coverPhoto: 'https://www.careergirls.org/wp-content/uploads/2019/09/toothpick-bridge-final-1440x1000-720x500.jpg',
+    materials: 'materials, materials',
+    tools: 'tools, tools, tools',
+    hazards: 'hazard, hazard',
     reviews: [],
     photos: [],
     verified: false,
@@ -19,35 +21,40 @@ function CreateProject(props) {
   })
 
   function handleInputChange(event) {
-    event.preventDefault();
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.value;
     const name = target.name;
 
-    setFormData({
+    setFormData(formData => ({
+      ...formData,
       [name]: value
-    });
+    }));
   }
 
-  // function getVerifiedProjects() {
-  //   axios.get('http://localhost:8080/gogy/projects/verified')
-  //     .then((res) => {
-  //       setProjects(res.data)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }
+  function handleSubmit(event) {
+    event.preventDefault()
+    formData.materials = formData.materials.split(', ')
+    formData.tools = formData.tools.split(', ')
+    formData.hazards = formData.hazards.split(', ')
+    axios.post('http://localhost:8080/gogy/projects', formData)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
+
 
   return (
     <CreateProjectFormWrapper>
-      <CreateProjectForm>
+      <CreateProjectForm >
         <label>Project name</label>
         <input
           type="text"
           name="name"
           value={formData.name}
-          maxlength="10"
+          maxLength="25"
           placeholder="ex. Paper Airplane"
           onChange={handleInputChange}
           require
@@ -57,7 +64,7 @@ function CreateProject(props) {
           type="text"
           name="description"
           value={formData.description}
-          maxlength="100"
+          maxLength="100"
           placeholder="ex. This project teaches you how to..."
           onChange={handleInputChange}
           require
@@ -70,7 +77,7 @@ function CreateProject(props) {
           onChange={handleInputChange}
           require
         />
-        <label>Group size</label>
+        <label>Recommended group size</label>
         <input
           type="number"
           name="groupSize"
@@ -92,9 +99,18 @@ function CreateProject(props) {
         />
         <label>Cover Photo</label>
         <input
-          type="file"
-          name="age"
+          type="text"
+          name="coverPhoto"
           value={formData.coverPhoto}
+          onChange={handleInputChange}
+        />
+        <label>Materials needed</label>
+        <input
+          type="text"
+          name="materials"
+          value={formData.materials}
+          maxLength="250"
+          placeholder="ex. paper, thoothpicks, .."
           onChange={handleInputChange}
         />
         <label>Tools needed</label>
@@ -102,7 +118,7 @@ function CreateProject(props) {
           type="text"
           name="tools"
           value={formData.tools}
-          maxlength="250"
+          maxLength="250"
           placeholder="ex. scissors, tape, glue"
           onChange={handleInputChange}
         />
@@ -111,11 +127,11 @@ function CreateProject(props) {
           type="text"
           name="hazards"
           value={formData.hazards}
-          maxlength="250"
+          maxLength="250"
           placeholder="ex. cuts, choking, heavy lifting"
           onChange={handleInputChange}
         />
-        <input type="submit"/>
+        <input type="submit" onClick={(handleSubmit)}/>
       </CreateProjectForm>
     </CreateProjectFormWrapper>
   );

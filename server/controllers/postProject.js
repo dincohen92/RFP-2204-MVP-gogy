@@ -9,7 +9,7 @@ module.exports.postProject = async (req, res) => {
       Projects.create(req.body)
       res.sendStatus(201)
     } else {
-      console.log("project already exists")
+      alert("project already exists")
       res.sendStatus(401)
     }
   } catch {

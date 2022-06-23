@@ -48,7 +48,7 @@ function App() {
     } else {
       getProjects();
     }
-  })
+  },[safeMode, projects])
 
   return (
     <div>
