@@ -1,10 +1,18 @@
 import React from 'react';
+import {FeaturedProjectWrapper} from '../../../styled-components/home';
+import ProjectCard from '../../global/ProjectCard';
 
 function FeaturedProjects(props) {
   return (
-    <div>
-      <h3>Featured Projects</h3>
-    </div>
+    <FeaturedProjectWrapper>
+      <ProjectCard/>
+      <ProjectCard/>
+      <ProjectCard/>
+      <ProjectCard/>
+      <ProjectCard/>
+      <ProjectCard/>
+      <ProjectCard/>
+    </FeaturedProjectWrapper>
   );
 }
 

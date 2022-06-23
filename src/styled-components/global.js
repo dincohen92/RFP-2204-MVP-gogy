@@ -3,9 +3,8 @@ import styled from 'styled-components';
 export const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 60%;
+  gap: 50px;
   align-items: center;
-  width: 100%;
   height: 100px;
   padding: 0px 25px;
   background-color: #85CB33;
@@ -18,4 +17,17 @@ export const Searchbar = styled.input`
   border: none;
   padding: 0px 10px;
 `
+export const ProjectCardWrapper = styled.div`
+  display: flex;
+  flex-direction: column:
+  gap: 25px;
+  align-items: center;
+  height: 200px;
+  width: 150px;
+  padding: 15px;
+  border-style: none;
+  border-radius: 25px;
+  background-color: #85cb33ff;
+`
+
 
