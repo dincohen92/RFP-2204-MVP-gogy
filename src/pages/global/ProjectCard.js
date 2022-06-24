@@ -1,9 +1,9 @@
 import React from 'react';
 import {ProjectCardWrapper, ProjectCardPhoto} from '../../styled-components/global'
 
-function ProjectCard({project}) {
+function ProjectCard({project, handleCardClick}) {
   return (
-    <ProjectCardWrapper>
+    <ProjectCardWrapper onClick={() => handleCardClick(project._id)}>
       <ProjectCardPhoto src={project.coverPhoto}/>
       <div>
         {project.name}

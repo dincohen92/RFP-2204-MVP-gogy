@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 import Home from './pages/home/Home';
+import ProjectDetails from './pages/project-details/ProjectDetails'
 import CreateProject from './pages/create-project/CreateProject';
 
 import { Navbar, Searchbar } from './styled-components/global'
@@ -11,15 +12,23 @@ function App() {
   const [safeMode, setSafeMode] = useState(true)
   const [page, setPage] = useState('home')
   const [projects, setProjects] = useState([])
+  const [projectId, setprojectId] = useState('')
+  const [currentProject, setcurrentProject] = useState({})
 
   function toggleSafeMode(event) {
     event.preventDefault()
     setSafeMode(!safeMode);
   }
 
-  function changePage(event) {
-    event.preventDefault()
-    setPage(event.target.value);
+  function changePage(page) {
+    // event.preventDefault()
+    setPage(page);
+  }
+
+  function handleCardClick(id) {
+    console.log(id);
+    setprojectId(id);
+    setPage('projectDetails')
   }
 
   function getVerifiedProjects() {
@@ -42,39 +51,39 @@ function App() {
       })
   }
 
+  function getProject() {
+    axios.get(`http://localhost:8080/gogy/projects/${projectId}`)
+      .then((res) => {
+        setcurrentProject(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   useEffect(() => {
     if ( safeMode ) {
       getVerifiedProjects();
     } else {
       getProjects();
     }
-  },[safeMode, projects])
+    getProject();
+  },[safeMode, projects, projectId])
 
   return (
     <div>
       <Navbar>
-        <h1>
+        <h1  onClick={() => changePage("home")}>
           gogy
         </h1>
         <Searchbar type="text" placeholder='search'/>
       </Navbar>
-      <button onClick={toggleSafeMode}>
-        Safemode { safeMode ? 'on' : 'off' }
-      </button>
-      <button value="home" onClick={changePage}>home</button>
-      <button value="projectDetails" onClick={changePage}>projectDetails</button>
-      <button value="projectOverview" onClick={changePage}>projectOverview</button>
-      <button value="search" onClick={changePage}>search</button>
-      <button value="createProject" onClick={changePage}>createProject</button>
-      <button onClick={getProjects}>get projects</button>
 
       { page === 'home' &&
-        <Home projects={projects} />
+        <Home projects={projects} handleCardClick={handleCardClick} />
       }
       { page === 'projectDetails' &&
-        <>
-          projectDetails
-        </>
+        <ProjectDetails  project={currentProject}/>
       }
       { page === 'projectOverview' &&
         <>
@@ -87,8 +96,14 @@ function App() {
         </>
       }
       { page === 'createProject' &&
-        <CreateProject />
+        <CreateProject/>
       }
+      <button onClick={() => changePage("createProject")}>
+        createProject
+      </button>
+      <button onClick={toggleSafeMode}>
+        Safemode { safeMode ? 'on' : 'off' }
+      </button>
     </div>
   );
 }

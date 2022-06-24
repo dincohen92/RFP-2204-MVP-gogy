@@ -1,9 +1,14 @@
 import React from 'react';
-import {BannerImage} from '../../../styled-components/home'
+import {BannerImage, Blurb} from '../../../styled-components/home'
 
 function Banner(props) {
   return (
-    <BannerImage src="https://images.pexels.com/photos/6941442/pexels-photo-6941442.jpeg"/>
+    <div>
+      <BannerImage src="https://images.pexels.com/photos/6941442/pexels-photo-6941442.jpeg"/>
+      <Blurb>
+      Welcome to gogy! Here you can browse and share projects!!!
+      </Blurb>
+    </div>
   );
 }
 

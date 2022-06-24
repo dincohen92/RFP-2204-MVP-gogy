@@ -6,7 +6,7 @@ function FeaturedProjects(props) {
   return (
     <FeaturedProjectWrapper>
       {props.projects.map((project, index) => (
-        <ProjectCard project={project}/>
+        <ProjectCard project={project} handleCardClick={props.handleCardClick}/>
       ))}
     </FeaturedProjectWrapper>
   );

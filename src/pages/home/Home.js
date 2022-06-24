@@ -7,8 +7,8 @@ function Home(props) {
   return (
     <div>
       <Banner/>
-      <Overview/>
-      <FeaturedProjects projects={props.projects}/>
+      {/* <Overview/> */}
+      <FeaturedProjects projects={props.projects} handleCardClick={props.handleCardClick}/>
     </div>
   );
 }
