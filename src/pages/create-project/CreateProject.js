@@ -38,6 +38,7 @@ function CreateProject(props) {
     formData.hazards = formData.hazards.split(', ')
     axios.post('http://localhost:8080/gogy/projects', formData)
     .then((res) => {
+      props.changePage("home")
       console.log(res)
     })
     .catch((err) => {
@@ -48,7 +49,7 @@ function CreateProject(props) {
 
   return (
     <CreateProjectFormWrapper>
-      <CreateProjectForm >
+      <CreateProjectForm>
         <label>Project name</label>
         <input
           type="text"
@@ -131,7 +132,11 @@ function CreateProject(props) {
           placeholder="ex. cuts, choking, heavy lifting"
           onChange={handleInputChange}
         />
-        <input type="submit" onClick={(handleSubmit)}/>
+        <input type="submit"
+          className="submitButton"
+          onClick={(handleSubmit)}
+          style={{margin: "0px"}}
+        />
       </CreateProjectForm>
     </CreateProjectFormWrapper>
   );

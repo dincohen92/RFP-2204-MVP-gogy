@@ -7,6 +7,41 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+label {
+  font-weight: bold;
+  padding: 0px;
+  margin-top: 15px;
+}
+
+input {
+  padding: 10px;
+}
+
+button {
+  border-style: none;
+  background-color: #85cb33ff;
+  padding: 15px 20px;
+  margin: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+.container {
+  padding: 10px;
+  color: white;
+}
+
+.submitButton {
+  border-style: none;
+  background-color: #85cb33ff;
+  padding: 15px 20px;
+  margin: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+
+
 /* CSS HEX */
 /*
 smoky-black: #100b00ff;

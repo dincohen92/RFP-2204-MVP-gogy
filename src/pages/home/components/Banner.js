@@ -6,7 +6,7 @@ function Banner(props) {
     <div>
       <BannerImage src="https://images.pexels.com/photos/6941442/pexels-photo-6941442.jpeg"/>
       <Blurb>
-      Welcome to gogy! Here you can browse and share projects!!!
+      Welcome to gogy where you can browse and share projects!!!
       </Blurb>
     </div>
   );

@@ -21,7 +21,6 @@ function App() {
   }
 
   function changePage(page) {
-    // event.preventDefault()
     setPage(page);
   }
 
@@ -83,7 +82,7 @@ function App() {
         <Home projects={projects} handleCardClick={handleCardClick} />
       }
       { page === 'projectDetails' &&
-        <ProjectDetails  project={currentProject}/>
+        <ProjectDetails  project={currentProject} changePage={changePage}/>
       }
       { page === 'projectOverview' &&
         <>
@@ -96,9 +95,9 @@ function App() {
         </>
       }
       { page === 'createProject' &&
-        <CreateProject/>
+        <CreateProject changePage={changePage}/>
       }
-      <button onClick={() => changePage("createProject")}>
+      <button style={{marginLeft: "50px"}} onClick={() => changePage("createProject")}>
         createProject
       </button>
       <button onClick={toggleSafeMode}>

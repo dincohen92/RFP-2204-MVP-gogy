@@ -7,7 +7,7 @@ function Home(props) {
   return (
     <div>
       <Banner/>
-      {/* <Overview/> */}
+      <h2 style={{padding: "0px 50px"}}>Featured Projects</h2>
       <FeaturedProjects projects={props.projects} handleCardClick={props.handleCardClick}/>
     </div>
   );
